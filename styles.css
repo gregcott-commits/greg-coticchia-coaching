@@ -541,3 +541,19 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
   .band-photo-media { animation: none; }
   html.js [data-reveal] { translate: none; }
 }
+/* Client quotes */
+.band-accent-eyebrow { color: color-mix(in oklab, var(--color-bg) 70%, transparent); margin-block-end: 32px; }
+.quotes { display: grid; gap: 48px; max-width: 72rem; }
+.quote { margin: 0; display: grid; gap: 16px; }
+.quote blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.2; text-wrap: balance; }
+.quote figcaption { font-size: 0.95rem; color: color-mix(in oklab, var(--color-bg) 72%, transparent); }
+@media (min-width: 52rem) { .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; } }
+
+/* FAQ */
+.faq { margin-block-start: 40px; max-width: 52rem; border-top: 1px solid var(--color-border); }
+.faq details { border-bottom: 1px solid var(--color-border); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 24px; padding-block: 22px; font-family: var(--font-display); font-size: var(--text-h3); line-height: 1.25; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--color-accent-text); font-family: var(--font-body, inherit); transition: rotate 200ms ease; }
+.faq details[open] summary::after { rotate: 45deg; }
+.faq details p { padding-block-end: 24px; color: var(--color-text-secondary); max-width: 60ch; font-size: 1.0625rem; }
