@@ -558,3 +558,5 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 .faq details[open] summary::after { rotate: 45deg; }
 .faq details p { padding-block-end: 24px; color: var(--color-text-secondary); max-width: 60ch; font-size: 1.0625rem; }
 .quote-featured { grid-column: 1 / -1; max-width: 56rem; justify-self: center; }
+.course-cta { margin-block-start: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.course-meta { color: var(--color-text-secondary); font-size: 0.95rem; }
