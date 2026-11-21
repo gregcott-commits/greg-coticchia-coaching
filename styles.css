@@ -611,3 +611,28 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
   box-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
 }
 @media (prefers-reduced-motion: reduce) { .twin-avatar-ai::after { animation: none; } }
+
+/* Header link to AI digital twin */
+.nav-twin { display: inline-flex; align-items: center; gap: 8px; }
+.nav-twin-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22d3ee; box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7);
+  animation: twin-pulse 2s ease-out infinite;
+}
+@keyframes twin-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 211, 238, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .nav-twin-dot { animation: none; } }
+@media (min-width: 64rem) {
+  html.js .site-nav ul { gap: clamp(14px, 1.6vw, 32px); }
+  .site-nav a, .brand, .header-cta { white-space: nowrap; }
+  .header-row { gap: clamp(12px, 1.5vw, 16px); }
+}
+@media (min-width: 64rem) and (max-width: 75rem) {
+  html.js .site-nav ul { gap: 10px; }
+  html.js .site-nav a { font-size: 0.8125rem; }
+  .brand { font-size: 1.25rem; }
+  .header-cta { padding: 8px 14px; font-size: 0.875rem; }
+}
