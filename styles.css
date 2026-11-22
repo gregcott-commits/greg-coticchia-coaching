@@ -421,7 +421,8 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 
 /* Credentials strip */
 .credentials { list-style: none; margin: 56px 0 0; padding: 40px 0 0; display: grid; gap: 32px; border-top: 1px solid var(--color-border); }
-@media (min-width: 52rem) { .credentials { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 52rem) { .credentials { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .credentials { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .credentials li { display: grid; gap: 8px; }
 .credential-label { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-text); }
 .credentials p { color: var(--color-text-secondary); }
