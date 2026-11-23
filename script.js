@@ -94,7 +94,8 @@ if (speakingForm) {
         headers: { Accept: "application/json" },
         body: new FormData(speakingForm),
       });
-      if (!response.ok) throw new Error("Request failed");
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== "true") throw new Error(result.message || "Request failed");
       const first = speakingForm.elements.namedItem("name").value.split(" ")[0];
       status.textContent = `Thanks, ${first}. Greg will get back to you about your date shortly.`;
       speakingForm.reset();
