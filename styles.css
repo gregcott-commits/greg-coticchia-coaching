@@ -637,3 +637,39 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
   .brand { font-size: 1.25rem; }
   .header-cta { padding: 8px 14px; font-size: 0.875rem; }
 }
+
+/* Speaking */
+.speaking-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-display);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  max-width: 16ch;
+}
+.speaking-grid { display: grid; gap: 48px 64px; margin-block-start: clamp(40px, 6vw, 72px); align-items: start; }
+@media (min-width: 52rem) { .speaking-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.speaking-label { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-text-secondary); }
+.speaking-intro { margin-block: 16px 28px; font-size: 1.125rem; max-width: 46ch; padding-block-end: 28px; border-bottom: 2px solid var(--color-text-primary); }
+.topic-group { padding-block: 24px; }
+.topic-group + .topic-group { border-top: 1px solid var(--color-border); }
+.topic-group h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.1rem); line-height: 1.1; color: var(--color-text-primary); margin-block-end: 16px; }
+.topic-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.topic-group li { padding-inline-start: 18px; border-left: 3px solid var(--color-accent-solid); font-size: 1.0625rem; line-height: 1.45; }
+.speaking-photo { margin: 0; border: 2px solid var(--color-text-primary); background: var(--color-bg-sunken); }
+.speaking-photo img { width: 100%; height: auto; }
+.speaking-photo figcaption { padding: 16px 20px; border-top: 2px solid var(--color-text-primary); font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-secondary); }
+.speaking-form { margin-block-start: clamp(48px, 7vw, 88px); padding: clamp(24px, 4vw, 48px); border: 2px solid var(--color-text-primary); background: var(--color-bg-sunken); }
+.speaking-form h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 1.5rem + 1.6vw, 2.75rem); line-height: 1; margin-block-end: 28px; }
+.speaking-fields { display: grid; gap: 24px 32px; }
+@media (min-width: 46rem) { .speaking-fields { grid-template-columns: 1fr 1fr; } }
+.speaking-field { display: grid; gap: 10px; }
+.speaking-field label { font-size: var(--text-small); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); }
+.speaking-field input { width: 100%; padding: 16px 14px; border: 2px solid var(--color-text-primary); border-radius: 0; background: var(--color-bg); color: var(--color-text-primary); font: inherit; font-size: 1rem; }
+.speaking-field input:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.speaking-field input[aria-invalid="true"] { border-color: oklch(0.55 0.16 30); }
+.speaking-submit { margin-block-start: 32px; padding: 18px 32px; border: 0; border-radius: 0; background: var(--color-text-primary); color: var(--color-bg); font: inherit; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 200ms var(--ease-out); }
+.speaking-submit:hover { background: var(--color-accent-solid); }
+.speaking-submit[disabled] { opacity: 0.6; cursor: progress; }
+.speaking-status { margin-block-start: 16px; min-height: 1.5em; color: var(--color-accent-text); }

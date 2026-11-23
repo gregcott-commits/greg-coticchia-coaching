@@ -68,3 +68,40 @@ if (form) {
     form.reset();
   });
 }
+const speakingForm = document.querySelector("[data-speaking-form]");
+if (speakingForm) {
+  const status = speakingForm.querySelector(".speaking-status");
+  const submit = speakingForm.querySelector(".speaking-submit");
+  speakingForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    let firstInvalid = null;
+    speakingForm.querySelectorAll("input[required]").forEach((field) => {
+      field.value = field.value.trim();
+      const valid = field.checkValidity();
+      field.setAttribute("aria-invalid", String(!valid));
+      if (!valid && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      status.textContent = firstInvalid.type === "email" ? "Please enter a valid email address." : "Please enter your name and email.";
+      firstInvalid.focus();
+      return;
+    }
+    submit.disabled = true;
+    status.textContent = "Sending...";
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/gregcott@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(speakingForm),
+      });
+      if (!response.ok) throw new Error("Request failed");
+      const first = speakingForm.elements.namedItem("name").value.split(" ")[0];
+      status.textContent = `Thanks, ${first}. Greg will get back to you about your date shortly.`;
+      speakingForm.reset();
+    } catch (error) {
+      status.innerHTML = 'Something went wrong. Please email Greg at <a href="mailto:gregcott@gmail.com">gregcott@gmail.com</a>.';
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
