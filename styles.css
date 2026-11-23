@@ -422,7 +422,7 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 /* Credentials strip */
 .credentials { list-style: none; margin: 56px 0 0; padding: 40px 0 0; display: grid; gap: 32px; border-top: 1px solid var(--color-border); }
 @media (min-width: 52rem) { .credentials { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 72rem) { .credentials { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .credentials { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .credentials li { display: grid; gap: 8px; }
 .credential-label { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-text); }
 .credentials p { color: var(--color-text-secondary); }
@@ -697,3 +697,11 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 .mobile-cta[data-hidden] { opacity: 0; translate: 0 12px; pointer-events: none; }
 @media (min-width: 64rem) { .mobile-cta { display: none; } }
 @media (max-width: 63.99rem) { .site-footer { padding-block-end: 96px; } }
+
+/* Insights */
+.insight-list { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 24px; }
+@media (min-width: 52rem) { .insight-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
+.insight { padding: 28px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-surface); display: grid; gap: 12px; align-content: start; }
+.insight-tag { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-text); }
+.insight h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; line-height: 1.15; }
+.insight p { color: var(--color-text-secondary); }
