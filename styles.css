@@ -676,8 +676,8 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 /* Calendly and footer nav */
 .calendly-inline-widget { border-radius: var(--radius-md); overflow: hidden; background: var(--color-bg-surface); }
 .calendly-fallback { font-size: var(--text-small); color: var(--color-text-secondary); }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: var(--text-small); }
-.footer-nav a { color: var(--color-text-secondary); text-decoration: none; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 0 20px; font-size: var(--text-small); }
+.footer-nav a { padding-block: 11px; color: var(--color-text-secondary); text-decoration: none; }
 .footer-nav a:hover { color: var(--color-accent-text); }
 
 /* Checklist signup */
