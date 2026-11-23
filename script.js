@@ -143,3 +143,15 @@ if (checklistForm) {
     }
   });
 }
+
+const mobileCta = document.querySelector(".mobile-cta");
+if (mobileCta) {
+  const hideZones = ["#contact", "#checklist", "#speaking-form"].map((sel) => document.querySelector(sel)).filter(Boolean);
+  const update = () => {
+    const nearTop = window.scrollY < 400;
+    const inZone = hideZones.some((el) => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+    mobileCta.toggleAttribute("data-hidden", nearTop || inZone);
+  };
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
