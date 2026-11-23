@@ -89,7 +89,7 @@ if (speakingForm) {
     submit.disabled = true;
     status.textContent = "Sending...";
     try {
-      const response = await fetch("https://formsubmit.co/ajax/gregcott@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(speakingForm),
