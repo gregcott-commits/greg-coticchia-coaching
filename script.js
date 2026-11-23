@@ -106,3 +106,40 @@ if (speakingForm) {
     }
   });
 }
+
+const checklistForm = document.querySelector("[data-checklist-form]");
+if (checklistForm) {
+  const status = checklistForm.querySelector(".checklist-status");
+  const submit = checklistForm.querySelector("button[type=submit]");
+  const pdf = "assets/ceo-scaling-checklist.pdf";
+  checklistForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    let firstInvalid = null;
+    checklistForm.querySelectorAll("input[required]").forEach((field) => {
+      field.value = field.value.trim();
+      const valid = field.checkValidity();
+      field.setAttribute("aria-invalid", String(!valid));
+      if (!valid && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      status.textContent = firstInvalid.type === "email" ? "Please enter a valid email address." : "Please enter your first name and email.";
+      firstInvalid.focus();
+      return;
+    }
+    submit.disabled = true;
+    status.textContent = "Sending...";
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { Accept: "application/json" }, body: new FormData(checklistForm) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== "true") throw new Error(result.message || "Request failed");
+      const first = checklistForm.elements.namedItem("name").value.split(" ")[0];
+      status.innerHTML = `Thanks, ${first.replace(/[<>&"]/g, "")}. Your checklist is ready: <a class="checklist-download" href="${pdf}" target="_blank" rel="noopener" download>Download the CEO Scaling Checklist (PDF)</a>`;
+      checklistForm.reset();
+      window.open(pdf, "_blank", "noopener");
+    } catch (error) {
+      status.innerHTML = `Something went wrong sending your details, but you can still <a href="${pdf}" target="_blank" rel="noopener" download>download the checklist here</a>.`;
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
