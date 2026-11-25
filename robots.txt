@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://greg-coticchia-coaching.vercel.app/sitemap.xml
+Sitemap: https://gregcoticchia.net/sitemap.xml
